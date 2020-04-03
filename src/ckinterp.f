@@ -340,6 +340,12 @@ C
 C----------------------------------------------------------------------C
 C
       VERS = '3.1'
+C     Open units for input and output
+      OPEN (LIN, FORM='FORMATTED', FILE='data/mech')
+      OPEN (LTHRM, FORM='FORMATTED', FILE='data/thermdat')
+      OPEN (LOUT, FORM='FORMATTED', FILE='output/ckout')
+      OPEN (LINC, FORM='UNFORMATTED', FILE='output/cklink')
+C
       WRITE  (LOUT, 15) VERS(:3)
    15 FORMAT (/
      1' CHEMKIN INTERPRETER OUTPUT: CHEMKIN-II Version ',A,' Feb. 1993'
@@ -407,7 +413,7 @@ C            OPEN (LTHRM, STATUS='OLD', FORM='FORMATTED', READONLY,
 C     1            SHARED)
 C*****END OPEN statement > vms
 C*****OPEN statement > unix
-            OPEN (LTHRM, FORM='FORMATTED', FILE='thermdat')
+C            OPEN (LTHRM, FORM='FORMATTED', FILE='thermdat')
 C*****END OPEN statement > unix
 C
             READ (LTHRM,'(A)') LINE
@@ -450,7 +456,7 @@ C            OPEN (LTHRM, STATUS='OLD', FORM='FORMATTED', READONLY,
 C     1            SHARED)
 C*****END OPEN statement > vms
 C*****OPEN statement > unix
-            OPEN (LTHRM, FORM='FORMATTED', FILE='thermdat')
+C            OPEN (LTHRM, FORM='FORMATTED', FILE='thermdat')
 C*****END OPEN statement > unix
 C
             READ (LTHRM,'(A)') LINE
@@ -633,7 +639,7 @@ C*****OPEN statement > vms
 C      OPEN (LINC, STATUS='NEW', FORM='UNFORMATTED')
 C*****END OPEN statement > vms
 C*****OPEN statement > unix
-      OPEN (LINC, FORM='UNFORMATTED', FILE='cklink')
+C      OPEN (LINC, FORM='UNFORMATTED', FILE='cklink')
 C*****END OPEN statement > unix
 C
       WRITE (LINC) VERS, PREC, KERR

@@ -1,5 +1,3 @@
-log.*
-ckout
-cklink
-*.o
 ckinterpe
+data/mech
+output/*
